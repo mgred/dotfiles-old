@@ -1,5 +1,23 @@
+"===============================================================================
+" GENERAL
+"===============================================================================
+
+" Set the amount of lines to remember
+set history=700
+
 " Enable syntax processing
 syntax on
+
+" Turn off compatibility to vi
+set nocompatible
+
+filetype on
+
+" leader is comma
+let mapleader=","
+
+" jk is equal to ESC in insert mode
+inoremap jk <esc>
 
 " Set number of visual spaces per tab
 set tabstop=4
@@ -10,20 +28,18 @@ set softtabstop=4
 " Set number of columns for indent
 set shiftwidth=4
 
-" Show line numbers
-set number
-
 " Load filteype specific ident files
 filetype indent on
+
+"===============================================================================
+" APPEARANCE
+"===============================================================================
 
 " Show current mode down the bottom
 set showmode
 
 " Always report # of lines changed
 set report=0
-
-" Use utf8 by default
-set encoding=utf-8
 
 " Always display status line
 set laststatus=2
@@ -32,7 +48,18 @@ set laststatus=2
 set cursorline
 
 " Set a colored column after 80 characters
- set colorcolumn=80
+set colorcolumn=80
+
+" Show line numbers
+set number
+
+" Colorscheme
+" https://github.com/AlessandroYorba/Sierra
+let g:sierra_Twilight = 1
+colorscheme sierra
+
+" Use utf8 by default
+set encoding=utf-8
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -55,9 +82,9 @@ set listchars=eol:¬,tab:➜\ ,space:⋅
 
 set list
 
-" Turn off compatibility with vi
-set nocompatible
-filetype off
+"===============================================================================
+" PLUGINS
+"===============================================================================
 
 call plug#begin('~/.vim/plugged')
 
@@ -98,7 +125,3 @@ Plug 'junegunn/gv.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
-
-" colorscheme options
-let g:sierra_Twilight = 1
-colorscheme sierra
