@@ -13,12 +13,6 @@ set nocompatible
 
 filetype on
 
-" leader is comma
-let mapleader=","
-
-" jk is equal to ESC in insert mode
-inoremap jk <esc>
-
 " Set number of visual spaces per tab
 set tabstop=4
 
@@ -30,6 +24,17 @@ set shiftwidth=4
 
 " Load filteype specific ident files
 filetype indent on
+
+"===============================================================================
+" REMAPPINGS
+"===============================================================================
+
+" leader is comma
+let mapleader=","
+
+" jk is equal to ESC in insert mode
+inoremap jk <esc>
+
 
 "===============================================================================
 " APPEARANCE
