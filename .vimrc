@@ -1,4 +1,14 @@
 "===============================================================================
+"
+"                       o88
+"           oooo   oooo oooo  oo ooo oooo   oo oooooo     ooooooo
+"            888   888   888   888 888 888   888    888 888     888
+"         ooo 888 888    888   888 888 888   888        888
+"         888   888     o888o o888o888o888o o888o         88ooo888
+"
+"                                Version : 0.1
+"
+"===============================================================================
 " TABLE OF CONTENT
 "===============================================================================
 "
@@ -7,6 +17,7 @@
 " # Appearance
 " # Behavior
 " # Plugins
+" ## Plugin options
 "
 "===============================================================================
 
@@ -82,15 +93,6 @@ set encoding=utf-8
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-" Turn on the Wild menu
-set wildmenu
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases
-set smartcase
-
 set listchars=eol:¬,tab:➜\ ,space:⋅
 
 set list
@@ -103,6 +105,15 @@ set list
 set nobackup
 set nowb
 set noswapfile
+
+" Turn on the Wild menu
+set wildmenu
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
 
 "===============================================================================
 " PLUGINS
