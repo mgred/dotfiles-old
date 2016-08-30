@@ -17,7 +17,7 @@
 " # Appearance
 " # Behavior
 " # Plugins
-" ## Plugin options
+" # Plugin options
 "
 "===============================================================================
 
@@ -119,6 +119,8 @@ set smartcase
 " PLUGINS
 "===============================================================================
 
+" vim-plug
+" https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
 
@@ -126,17 +128,7 @@ call plug#begin('~/.vim/plugged')
 
 " Lightline
 " https://github.com/itchyny/lightline.vim
-
 Plug 'itchyny/lightline.vim'
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
 
 " Highlight trailing space
 " https://github.com/bronson/vim-trailing-whitespace
@@ -154,7 +146,35 @@ Plug 'tpope/vim-surround'
 " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
 
+" Commit browser
+" https://github.com/junegunn/gv.vim
 Plug 'junegunn/gv.vim'
 
-" Add plugins to &runtimepath
+" Auto close for parenthesis
+" https://github.com/jiangmiao/auto-pairs
+Plug 'jiangmiao/auto-pairs'
+"
+
+" Automatic close html tags
+" https://github.com/alvan/vim-closetag
+Plug 'alvan/vim-closetag'
+
+" Syntax hightlighting for stylus
+" https://github.com/wavded/vim-stylus
+Plug 'wavded/vim-stylus'
+
 call plug#end()
+
+"===============================================================================
+" PLUGIN OPTIONS
+"===============================================================================
+
+" Ligthline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
