@@ -1,5 +1,8 @@
 export KEYTIMEOUT=1
 
+# Local directory for executables
+export PATH=$PATH:$HOME/.bin
+
 # Enable vi mode
 bindkey -v
 bindkey '^x' clear-screen
