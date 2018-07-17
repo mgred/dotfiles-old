@@ -1,18 +1,14 @@
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
 export KEYTIMEOUT=1
 
 # Enable vi mode
 bindkey -v
 bindkey '^x' clear-screen
 
-# Load colors
-# This is needed to color the prompt
+# Load colors to customise the prompt
 autoload colors && colors
 
 # Load aliases
+source ~/.go.zsh
 source ~/.alias.zsh
 source ~/.git.zsh
 

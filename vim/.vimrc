@@ -125,11 +125,15 @@ function! FzyCommand(choice_command, vim_command)
 endfunction
 
 let g:find_file = 'ag . --silent -g ""'
+let g:find_file_git = 'git ls-files'
 let g:find_file_all = 'ag . --silent -a -U -g ""'
 
-nnoremap <leader>e :call FzyCommand(find_file, ":e")<cr>
-nnoremap <leader>ea :call FzyCommand(find_file_all, ":e")<cr>
-nnoremap <leader>v :call FzyCommand("ag . --silent -g ''", ":vs")<cr> 
-nnoremap <leader>va :call FzyCommand("ag . --silent -g '' -a -U", ":vs")<cr>
-nnoremap <leader>s :call FzyCommand("ag . --silent -g ''", ":sp")<cr>
-nnoremap <leader>sa :call FzyCommand("ag . --silent -g '' -a -U", ":sp")<cr>
+nnoremap <leader>e :call FzyCommand(find_file_git, ":e")<cr>
+nnoremap <leader>fe :call FzyCommand(find_file, ":e")<cr>
+nnoremap <leader>ge :call FzyCommand(find_file_all, ":e")<cr>
+nnoremap <leader>v :call FzyCommand(find_file_git, ":vs")<cr>
+nnoremap <leader>fv :call FzyCommand("ag . --silent -g ''", ":vs")<cr> 
+nnoremap <leader>gv :call FzyCommand("ag . --silent -g '' -a -U", ":vs")<cr>
+nnoremap <leader>s :call FzyCommand(find_file_git, ":sp")<cr>
+nnoremap <leader>fs :call FzyCommand("ag . --silent -g ''", ":sp")<cr>
+nnoremap <leader>gs :call FzyCommand("ag . --silent -g '' -a -U", ":sp")<cr>
