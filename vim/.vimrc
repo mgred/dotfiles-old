@@ -18,6 +18,7 @@ set noshowmode
 " Don't create swap files
 set noswapfile
 
+" Set the charater used, when a vertical split is created
 set fillchars+=vert:\│
 
 " ESC with jk
@@ -32,6 +33,10 @@ function! WarningStatus() abort
 	let l:counts = ale#statusline#Count(bufnr(''))
 	return (l:counts.warning + l:counts.style_warning) == 0 ? '' : '•'
 endfunction
+
+"
+" Plugins
+"
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -50,6 +55,7 @@ Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
+" Colourscheme
 set background=dark
 colorscheme solarized
 
@@ -63,13 +69,12 @@ let &t_SI = "\e[5 q" " Insert mode, pipe
 let &t_EI = "\e[1 q" " Normal/Visual mode, block
 let &t_SR = "\e[3 q" " Replace mode, underlined
 
+" Configure Statusline
 set laststatus=2
 set statusline= 
-" set statusline+=\[%{toupper(mode())}\] 
 set statusline+=%1*%{ErrorStatus()}
 set statusline+=%2*%{WarningStatus()}
 set statusline+=%3*%{&modified\ ?'•':''}
-" set statusline+=\ 
 set statusline+=%=
 set statusline+=%t
 set statusline+=\ 
@@ -77,20 +82,18 @@ set statusline+=%l
 set statusline+=\/
 set statusline+=%L
 
+" User Colours red, yellow, gray
 hi User1 ctermfg=1
 hi User2 ctermfg=3
 hi User3 ctermfg=10
 
-" hi StatusLine ctermbg=234 ctermfg=16
 hi StatusLine ctermbg=white ctermfg=8
 hi StatusLineNC ctermbg=0 ctermfg=8
 hi VertSplit ctermbg=0 ctermfg=8
+" Set the fg color of the buffer char (default `~`)
+" to the background color to hide them
 hi EndOfBuffer ctermfg=8
 
-
-"highlight GitGutterAdd ctermfg=green
-"GitGutterChange       " a changed line
-"GitGutterDelete       " at least one removed line
 
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '×'
@@ -127,6 +130,8 @@ endfunction
 let g:find_file = 'ag . --silent -g ""'
 let g:find_file_git = 'git ls-files'
 let g:find_file_all = 'ag . --silent -a -U -g ""'
+
+nnoremap <leader>w :w<cr>
 
 nnoremap <leader>e :call FzyCommand(find_file_git, ":e")<cr>
 nnoremap <leader>fe :call FzyCommand(find_file, ":e")<cr>

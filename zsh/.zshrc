@@ -1,4 +1,6 @@
 export KEYTIMEOUT=1
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
 
 # Local directory for executables
 export PATH=$PATH:$HOME/.bin
@@ -6,6 +8,8 @@ export PATH=$PATH:$HOME/.bin
 # Enable vi mode
 bindkey -v
 bindkey '^x' clear-screen
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
 
 # Load colors to customise the prompt
 autoload colors && colors
@@ -55,13 +59,13 @@ function __select_file {
   return $?
 }
 zle -N __select_file
-bindkey '^f' __select_file
+#bindkey '^f' __select_file
 
 function __open_in_vim {
   local file=$(find_file | fzy)
   # if a file was selected, pass it to vim
   # Tell vim to read from /dev/tty, since this is default of fzy
-  [[ -n $file ]] && vim $file < /dev/tty
+  [[ -n $file ]] && ${EDITOR} "$file" < /dev/tty
 }
 zle -N __open_in_vim
 bindkey '^n' __open_in_vim
@@ -81,10 +85,10 @@ zle -N __select_history
 bindkey '^r' __select_history
 
 zle -N __git_checkout_local
-bindkey '^g' __git_checkout_local
+bindkey '^f' __git_checkout_local
 
-zle -N __git_checkout_global
-bindkey "^g^g" __git_checkout_global
+zle -N __git_checkout_remote
+bindkey "^g" __git_checkout_remote
 
 # Set default executable
 ENHANCD_FILTER="fzy"
@@ -100,5 +104,8 @@ HISTFILE=$HOME/.history
 
 # Share the history across sessions and terminals
 setopt share_history
+
+# Enable comments '#'
+setopt interactivecomments
 
 # vim:tw=80:ts=2:sw=2:expandtab
