@@ -53,6 +53,8 @@ Plug 'Quramy/tsuquyomi'
 
 Plug 'altercation/vim-colors-solarized'
 
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 " Colourscheme
@@ -89,7 +91,7 @@ hi User3 ctermfg=10
 
 hi StatusLine ctermbg=white ctermfg=8
 hi StatusLineNC ctermbg=0 ctermfg=8
-hi VertSplit ctermbg=0 ctermfg=8
+hi VertSplit ctermbg=8 ctermfg=0
 " Set the fg color of the buffer char (default `~`)
 " to the background color to hide them
 hi EndOfBuffer ctermfg=8
@@ -142,3 +144,5 @@ nnoremap <leader>gv :call FzyCommand("ag . --silent -g '' -a -U", ":vs")<cr>
 nnoremap <leader>s :call FzyCommand(find_file_git, ":sp")<cr>
 nnoremap <leader>fs :call FzyCommand("ag . --silent -g ''", ":sp")<cr>
 nnoremap <leader>gs :call FzyCommand("ag . --silent -g '' -a -U", ":sp")<cr>
+
+map <leader>j :NERDTreeToggle<CR>
