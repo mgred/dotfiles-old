@@ -6,6 +6,7 @@ __change_dir() {
 	local dir="$(find_dir | fzy --query=$1)"
 	cd "$dir"
 }
+
 alias c="cd -"
 alias cc="__change_dir"
 
@@ -33,4 +34,8 @@ alias less="less -r"
 #LESSOPEN="|~/./zsh/lesspipe.sh/lesspipe.sh %s"; export LESSOPEN
 #LESSOPEN="| lesspipe %s"; export LESSOPEN
 
+alias f="ag"
+# find in file
+# print list of files with occurance
+alias ff="ag -l"
 # vim:tw=80:ts=2:sw=2:expandtab

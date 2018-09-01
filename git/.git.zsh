@@ -112,7 +112,11 @@ alias gmo="__git_merge_remote 'origin'"
 alias gmu="__git_merge_remote 'upstream'"
 
 # Git branch
+# Remove a branch
 alias gbd="git branch -D"
+
+# Rename a branch
+alias gbm="git branch -m"
 
 # Git status
 alias gs="git status"
