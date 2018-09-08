@@ -10,6 +10,8 @@ bindkey -v
 bindkey '^x' clear-screen
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
 
 # Load colors to customise the prompt
 autoload colors && colors
@@ -67,8 +69,8 @@ function __open_in_vim {
   # Tell vim to read from /dev/tty, since this is default of fzy
   [[ -n $file ]] && ${EDITOR} "$file" < /dev/tty
 }
-zle -N __open_in_vim
-bindkey '^n' __open_in_vim
+#zle -N __open_in_vim
+#bindkey '^n' __open_in_vim
 
 function __select_history {
   # 1. Get all entries from the history (from position 0)

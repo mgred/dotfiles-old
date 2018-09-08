@@ -55,6 +55,10 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 " Colourscheme
@@ -117,6 +121,19 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \}
 
+" Hide Help message at the top
+" https://github.com/scrooloose/nerdtree/issues/437
+let NERDTreeMinimalUI=1
+" Hide Statusline at the bottom
+let NERDTreeStatusline=' '
+
+" Hide root path on top
+" https://github.com/scrooloose/nerdtree/issues/806
+augroup nerdtreehidecwd
+    autocmd!
+    autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeHideCWD #^[</].*$# conceal
+augroup end
+
 function! FzyCommand(choice_command, vim_command)
 	try
 		let output = system(a:choice_command . " | fzy ")
@@ -146,3 +163,6 @@ nnoremap <leader>fs :call FzyCommand("ag . --silent -g ''", ":sp")<cr>
 nnoremap <leader>gs :call FzyCommand("ag . --silent -g '' -a -U", ":sp")<cr>
 
 map <leader>j :NERDTreeToggle<CR>
+map <leader>q :wq<CR>
+map <leader>x :q!<CR>
+map <leader>g :GitGutterToggle<CR>
